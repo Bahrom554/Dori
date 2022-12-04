@@ -16,7 +16,6 @@
                         <th>Title</th>
                         <th class=" d-none d-md-table-cell">Subtitle</th>
                         <th class=" d-none d-lg-table-cell">Published At</th>
-                        <th class=" d-none d-md-table-cell">Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,7 +27,6 @@
                         <td class="text-truncate d-none d-md-table-cell">{{$post->subtitle}}</td>
                         <td class="text-truncate d-none d-lg-table-cell">{{ Carbon\Carbon::parse( $post->updated_at)->toFormattedDateString()}}
                         </td>
-                        <td class="text-truncate d-none d-md-table-cell">{{$post->status0}}</td>
 
 
                         <td>
@@ -55,7 +53,6 @@
                         <th>Title</th>
                         <th class=" d-none d-md-table-cell">Subtitle</th>
                         <th class=" d-none d-lg-table-cell">Published At</th>
-                        <th class=" d-none d-md-table-cell">Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -63,7 +60,7 @@
 
         </div>
         <div class="d-flex align-items-center justify-content-end">
-            {{ $posts->links() }}
+            {{ $posts->appends(request()->input())->links() }}
         </div>
     </div>
 </div>
@@ -72,7 +69,7 @@
 <script>
     $('#example').dataTable({
         "columnDefs": [{
-                "width": "5%",
+                "width": "3%",
                 "targets": 0
             },
             {
@@ -80,20 +77,17 @@
                 "targets": 1
             },
             {
-                "width": "30%",
+                "width": "35%",
                 "targets": 2
             },
+
             {
                 "width": "10%",
                 "targets": 3
             },
             {
-                "width": "3%",
-                "targets": 4
-            },
-            {
                 "width": "7%",
-                "targets": 5
+                "targets": 4
             },
         ],
         "paging": false,
