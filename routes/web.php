@@ -20,7 +20,7 @@ Route::get('/',function (){
 
 Route::get('/storage-link',function (){
  $targetFolder=storage_path('app/public');
- $linkfolder=$_SERVER['DOCUMENT_ROOT'].'images';
+ $linkfolder=$_SERVER['DOCUMENT_ROOT'].'/storage';
  symlink($targetFolder,$linkfolder);
 });
 Route::group(['middleware' => 'auth'], function () {
