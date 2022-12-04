@@ -18,10 +18,10 @@ Route::get('/',function (){
     return redirect(route('login'));
 });
 
-Route::get('/storage-link',function (){
- $targetFolder=storage_path('app/public');
- $linkfolder=$_SERVER['DOCUMENT_ROOT'].'storage';
- symlink($targetFolder,$linkfolder);
+//Route::get('/storage-link',function (){
+// $targetFolder=storage_path('app/public');
+// $linkfolder=$_SERVER['DOCUMENT_ROOT'].'storage';
+// symlink($targetFolder,$linkfolder);
 
 
 });
