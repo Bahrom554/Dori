@@ -2,7 +2,7 @@
 @section('content')
 @include('admin.layouts.error')
 
-<form method="setting" action="{{route('setting.update',$setting->id)}}"  enctype="multipart/form-data">
+<form method="POST" action="{{route('setting.update',$setting->id)}}"  enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <div style="font-size: 30px" class="col-3 mb-1"><a href="{{route('setting.index')}}"><i

@@ -85,7 +85,7 @@ class SettingController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Setting $setting)
     {
@@ -107,7 +107,9 @@ class SettingController extends Controller
                 'file_id' => 'required', $messages
             ]);
         }
-        Setting::update($request->only('name','link','file_id','type'));
+        $setting->update($request->only('name','link','file_id','type'));
+
+        return redirect(route('setting.index'));
 
     }
 
