@@ -69,7 +69,7 @@
 <script>
     $('#example').dataTable({
         "columnDefs": [{
-                "width": "3%",
+                "width": "5%",
                 "targets": 0
             },
             {
@@ -77,7 +77,7 @@
                 "targets": 1
             },
             {
-                "width": "35%",
+                "width": "30%",
                 "targets": 2
             },
 
@@ -86,7 +86,7 @@
                 "targets": 3
             },
             {
-                "width": "7%",
+                "width": "10%",
                 "targets": 4
             },
         ],
