@@ -38,7 +38,9 @@ class PostService
             $request->validate([
                 'file' => 'mimes:JPG,jpeg, jpg, svg, png|required|max:10000'
             ]);
-            $this->service->delete($post->file_id);
+            if($post->file_id){
+                $this->service->delete($post->file_id);
+            }
             $file = $this->service->uploads($request);
             $request['file_id'] = $file->id;
             $messages = [
